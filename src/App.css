@@ -38,13 +38,22 @@
 
 .item {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
+}
+
+span{
+  padding-left: 20px;
 }
 
 .trash{
   cursor: pointer;
 }
+
+.edit{
+  cursor: pointer;
+}
+
 
 .input-items{
   margin:10px 0;
