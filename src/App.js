@@ -14,11 +14,6 @@ function App() {
     }
   }, []);
 
-  // Save todos to local storage whenever todos state changes
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
   const handleAddTodo = () => {
     const text = inputRef.current.value;
     if (text.trim() === "") {
@@ -30,11 +25,14 @@ function App() {
       const newTodos = [...todos];
       newTodos[editingIndex].text = text;
       setTodos(newTodos);
+
       setEditingIndex(null);
     } else {
       const newItem = { completed: false, text };
       setTodos([...todos, newItem]);
     }
+    localStorage.setItem("todos", JSON.stringify(todos));
+
     inputRef.current.value = "";
   };
 
